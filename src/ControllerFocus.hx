@@ -14,7 +14,7 @@ class ControllerFocus extends Focus {
   function markClosestToPoint(x:Float, y:Float, min_x:Float = null,
                                 min_y:Float = null, max_x:Float = null,
                                 max_y:Float = null) {
-        trace("Marking closest to " + x + ", " + y);
+        //trace("Marking closest to " + x + ", " + y);
 
         if (min_x == null) {
           min_x = 0;
@@ -57,7 +57,7 @@ class ControllerFocus extends Focus {
           min_element.mouseenter(null);
         }
   }
-
+  
   function up() {
     if (canvas.marked == null) {
       // We select the bottom one
@@ -126,6 +126,9 @@ class ControllerFocus extends Focus {
         return;
       }
 
+      /*
+
+
       for (k in Controls.get_menu_movement_controls()) {
         if (k[0] == "analogue") {
           var horizontal_key = k[1];
@@ -163,7 +166,7 @@ class ControllerFocus extends Focus {
             down();
           }
         }
-      }
+      }*/
     }
   }
 }

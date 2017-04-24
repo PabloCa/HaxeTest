@@ -40,14 +40,18 @@ class Main extends luxe.Game {
 
     // Preload splash screens
     for (i in 0...Luxe.core.app.config.user.game.splash_screens) {
-      config.preload.textures.push({ id:'assets/splash' + (i + 1) + '.png' });
+      config.preload.textures.push({ id:'assets/splash.png' });
     }
 
     // Set up defaults
     config.window.title = config.user.game.name;
 
     // Load basic images
-    config.preload.textures.push({ id:'assets/logo.png' });
+    config.preload.textures.push({ id:'assets/logo2.png' });
+
+    config.preload.textures.push({ id:'assets/player.png' });
+
+    config.preload.jsons.push({ id:'assets/anim.json' });
 
     return config;
   }

@@ -31,7 +31,7 @@ class MenuState extends State {
     var a_canvas = new AutoCanvas(Luxe.camera.view, {
       name:'canvas',
       rendering: new LuxeMintRender(),
-      options: { color:new Color(1,1,1,0.0) },
+      options: { color:new Color().rgb(0xff5656) },
       x: 0, y:0, w: Luxe.screen.w, h: Luxe.screen.h
     });
     a_canvas.auto_listen();
@@ -42,7 +42,7 @@ class MenuState extends State {
     var image = new mint.Image({
         parent: canvas, name: 'logo',
         x: Luxe.screen.mid.x - (640 / 2), y:50, w:640, h:213,
-        path: 'assets/logo.png'
+        path: 'assets/logo2.png'
     });
 
     layout.margin(image, top, fixed, 50);
@@ -51,9 +51,9 @@ class MenuState extends State {
       parent: canvas,
       name: 'play_button',
       x: Luxe.screen.mid.x - (320 / 2), y: 295, w: 320, h: 64,
-      text: 'Play Game',
+      text: 'Jugar',
       text_size: 28,
-      options: { },
+      options: {  },
       onclick: function(_, _) {
         Main.machine.set("game_state");
       }
@@ -70,7 +70,7 @@ class MenuState extends State {
         parent: canvas,
         name: 'options_button',
         x: Luxe.screen.mid.x - (320 / 2), y: 391, w: 320, h: 64,
-        text: 'Options',
+        text: 'Opciones',
         text_size: 28,
         options: { },
         onclick: function(e,c) {
@@ -86,7 +86,7 @@ class MenuState extends State {
       parent: canvas,
       name: 'exit_button',
       x: Luxe.screen.mid.x - (320 / 2), y: 0, w: 320, h: 64,
-      text: 'Exit',
+      text: 'Salir',
       text_size: 28,
       options: { },
       onclick: function(_, _) {

@@ -1,7 +1,7 @@
 {
   "game": {
-    "name": "TEMPLATE",
-    "menu_text": "TEMPLATE is a game by Citizen of Mêlée",
+    "name": "Demo",
+    "menu_text": "DEMO creada por Batman",
     "splash_screens": 1,
     "controllers": 4,
     "allow_keyboard": true,

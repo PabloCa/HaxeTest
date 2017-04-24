@@ -1,18 +1,18 @@
 {
   project: {
-    name: 'BasicTemplate',
+    name: 'Demo',
     version: '1.0.0',
-    author: 'Citizen of Melee',
+    author: 'Batman',
 
     app: {
-      name: 'basictemplate',
-      package: 'io.itch.citizenofmelee'
+      name: 'DemoTEcnica',
+      package: 'com.luxeengine.demoTecnica'
     },
 
     build: {
       dependencies: {
         luxe: '*',
-        mint : '*'
+        mint : '*',
       },
       "flags": [
         // This is required to ensure it builds for web

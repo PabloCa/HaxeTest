@@ -4,7 +4,7 @@ import luxe.Sprite;
 import luxe.tween.Actuate;
 import luxe.Color;
 import luxe.tween.actuators.GenericActuator;
-
+import luxe.Vector;
 import mint.render.luxe.LuxeMintRender;
 
 /**
@@ -13,6 +13,7 @@ import mint.render.luxe.LuxeMintRender;
 class SplashState extends State {
 
   var splash:Sprite;
+  var fondo:Sprite;
   var tween:IGenericActuator;
   var n:Int;
   var stopping = false;
@@ -26,10 +27,15 @@ class SplashState extends State {
     n = cast i;
     trace("Enter splash state " + n);
 
+    fondo = new luxe.Sprite({
+            color: new Color().rgb(0xffffff),
+            pos: new Vector(Luxe.screen.mid.x, Luxe.screen.mid.y),
+            size: new Vector(Luxe.screen.size.x, Luxe.screen.size.y),
+    });
 
     splash = new Sprite({
         name:'splash',
-        texture : Luxe.resources.texture('assets/splash' + n + '.png'),
+        texture : Luxe.resources.texture('assets/splash.png'),
         pos : Luxe.screen.mid,
         centered : true,
         color: new Color(1, 1, 1, 0)
@@ -46,6 +52,7 @@ class SplashState extends State {
   override function onleave<T> (_:T) {
     trace("Leave splash state");
     splash.destroy();
+    fondo.destroy();
   }
 
   /**
