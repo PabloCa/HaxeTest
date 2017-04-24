@@ -1,8 +1,3 @@
-This is a basic template for Luxe games.
-
-It will be extended by genre specific templates, which in turn will be extended
-for specific games.
-
-
+Demo técnica basada en https://github.com/jscott1989/luxe_base con el objetivo de experimentar con el motor
 Installed libraries:
   Mint (UI)
