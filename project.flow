@@ -13,6 +13,7 @@
       dependencies: {
         luxe: '*',
         mint : '*',
+        "haxe-firebase": '*'
       },
       "flags": [
         // This is required to ensure it builds for web

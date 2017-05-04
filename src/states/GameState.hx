@@ -30,6 +30,7 @@ class GameState extends State {
     var arrastrador: Arrastrador;
     var fondo:Geometry;
     var text1: mint.TextEdit;
+    var text2: mint.TextEdit;
     var canvas: mint.Canvas;
     var delta_time_text : Text;
     var focus: ControllerFocus; 
@@ -40,6 +41,8 @@ class GameState extends State {
     var max_left : Float = 0;
     var max_right : Float = 0;
     var move_speed : Float = 0;
+
+    var refRecibe : firebase.database.Reference;
 
 
 
@@ -131,20 +134,68 @@ class GameState extends State {
         });
 
         text1 = new mint.TextEdit({
-            parent: window, name: 'textedit1', text: 'ola', renderable: true,
+            parent: window, name: 'textedit1', text: 'hola', renderable: true,
             x: 10, y:32, w: 256-10-10, h: 22
         });
 
-        var exit_button = new mint.Button({
+        text2 = new mint.TextEdit({
+            parent: window, name: 'textedit2', text: 'ahta lueo', renderable: true,
+            x: 10, y:90, w: 256-10-10, h: 22
+        });
+
+        //firebase
+
+        var config = {
+          apiKey: "AIzaSyA20B_Ulmn1OpxU7ZjtZqugOy232A-7Evw",
+        authDomain: "testhaxe.firebaseapp.com",
+        databaseURL: "https://testhaxe.firebaseio.com",
+        projectId: "testhaxe",
+        storageBucket: "testhaxe.appspot.com",
+        messagingSenderId: "1092267768745"
+
+        };
+
+        
+
+        var app = firebase.Firebase.initializeApp(config);
+        var refEnvia = app.database().ref("test");
+        /*
+        app.database().ref("a").once(firebase.EventType.Value).then(function(snapshot) {
+                trace("key:"+snapshot.key+"");
+                snapshot.forEach(function(childSnapshot) {
+
+                    trace("la key Dentro es"+childSnapshot.key);
+                });
+        */
+        
+     
+
+        var boton_subir = new mint.Button({
           parent: window,
-          name: 'botonInutil',
-          x: 10, y: 60, w: 256-10-10, h: 22,
-          text: 'botonInutil',
+          name: 'boton1',
+          x: 10, y: 60, w: 110, h: 22,
+          text: 'subir',
           text_size: 12,
           options: { },
           onclick: function(_, _) {
-            trace('Lo que esta en TE es:'+text1.text+'\n bloque 1:'+ block.pos.x+'-'+block.pos.y+' g:'+block.geometry+'\n bloque 2:'+ block2.pos.x+'-'+block2.pos.y+' g:'+block2.geometry);
-            
+            refEnvia.set(text1.text,function(e) {
+              trace("Enviado de firebase"+e);
+            });                    
+          }
+        });
+
+        var boton_bajar = new mint.Button({
+          parent: window,
+          name: 'boton2',
+          x: 130, y: 60, w: 110, h: 22,
+          text: 'bajar',
+          text_size: 12,
+          options: { },
+          onclick: function(_, _) {
+  
+            refEnvia.once(firebase.EventType.Value).then(function(snapshot) {
+                text2.text=snapshot.val();
+            });    
           }
         });
     }
